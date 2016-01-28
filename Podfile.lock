@@ -1,0 +1,31 @@
+PODS:
+  - Alamofire (3.1.5)
+  - Kingfisher (2.0.0)
+  - SnapKit (0.19.1)
+  - SQLite.swift (0.9.2)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - SnapKit
+  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  SQLite.swift:
+    :git: https://github.com/stephencelis/SQLite.swift.git
+
+CHECKOUT OPTIONS:
+  SQLite.swift:
+    :commit: d304343f5e9243d17197365d4ce8249e9b7ce84e
+    :git: https://github.com/stephencelis/SQLite.swift.git
+
+SPEC CHECKSUMS:
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  Kingfisher: 67d280b39e878afbd467c80953924a61950c45e4
+  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
+  SQLite.swift: 5dca22dbf6634fdb9c3270fae9491830804e9b2d
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+COCOAPODS: 0.39.0

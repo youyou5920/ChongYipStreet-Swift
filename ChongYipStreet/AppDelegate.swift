@@ -12,11 +12,40 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var tabbar: UITabBarController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        self.window? = UIWindow()
+        self.window?.frame = UIScreen.mainScreen().bounds
+        self.window?.backgroundColor = UIColor.whiteColor()
+        
+        createTabBarController()
+        
+        self.window?.makeKeyAndVisible()
+
         return true
+    }
+    
+    func createTabBarController() {
+        tabbar = UITabBarController()
+        window?.rootViewController = tabbar
+        
+        let classNames = [CYSCommandViewController(), CYSTribuneViewController(), CYSProjectViewController(), CYSMineViewController()]
+        let titles = ["推荐", "论坛", "项目", "我"]
+        let normalImageNames = ["", "", "", ""]
+        let selectImageNames = ["", "", "", ""]
+        for i in 0 ..< classNames.count {
+            initTabbarChilderViewControllers(classNames[i], withTitle: titles[i], andNormalImageName: normalImageNames[i], andSelectImageName: selectImageNames[i])
+        }
+    }
+    
+    func initTabbarChilderViewControllers(className: UIViewController, withTitle title: String, andNormalImageName normalImageName: String, andSelectImageName selectImageName: String) {
+        let nv = CYSNavigationController(rootViewController: className)
+        nv.title = title
+        nv.tabBarItem.image = UIImage(named: normalImageName)
+        nv.tabBarItem.selectedImage = UIImage(named: selectImageName)
+        
+        tabbar.addChildViewController(nv)
     }
 
     func applicationWillResignActive(application: UIApplication) {
