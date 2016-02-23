@@ -15,20 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabbar: UITabBarController! = UITabBarController()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         self.window?.backgroundColor = UIColor.whiteColor()
-        
-        self.createTabBarController()
+        window?.rootViewController = tabbar
+
+        createTabBarController()
+        initAppKey()
         
         self.window?.makeKeyAndVisible()
         
         return true
     }
     
+    func initAppKey() {
+        Bmob.registerWithAppKey("d79495d3a4f3797a4615b12e43efae35")
+    }
+    
     func createTabBarController() {
-        
-        window?.rootViewController = tabbar
-        
         let classNames = [CYSCommandViewController(), CYSTribuneViewController(), CYSProjectViewController(), CYSMineViewController()]
         let titles = ["推荐", "论坛", "项目", "我"]
         let normalImageNames = ["light_normal.png", "message_normal.png", "home_normal.png", "user_normal.png"]

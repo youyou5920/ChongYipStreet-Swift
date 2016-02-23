@@ -182,6 +182,7 @@
 		740F097B1C64B4AE00C0C61A /* CYSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F096A1C64B4AE00C0C61A /* CYSBaseViewController.swift */; };
 		740F097C1C64B4AE00C0C61A /* CYSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F096B1C64B4AE00C0C61A /* CYSNavigationController.swift */; };
 		740F097D1C64B4AE00C0C61A /* CYSTribuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F09701C64B4AE00C0C61A /* CYSTribuneViewController.swift */; };
+		771627F81C7CA9690059CCBE /* CYSBackgroundDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771627F71C7CA9690059CCBE /* CYSBackgroundDataOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +386,8 @@
 		740F096A1C64B4AE00C0C61A /* CYSBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSBaseViewController.swift; sourceTree = "<group>"; };
 		740F096B1C64B4AE00C0C61A /* CYSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSNavigationController.swift; sourceTree = "<group>"; };
 		740F09701C64B4AE00C0C61A /* CYSTribuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSTribuneViewController.swift; sourceTree = "<group>"; };
+		771627F21C7CA7FA0059CCBE /* ChongYipStreet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChongYipStreet-Bridging-Header.h"; sourceTree = "<group>"; };
+		771627F71C7CA9690059CCBE /* CYSBackgroundDataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSBackgroundDataOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +586,7 @@
 		56A6BFFB1C59ECE100AEA490 /* ChongYipStreet */ = {
 			isa = PBXGroup;
 			children = (
+				771627F61C7CA8BA0059CCBE /* Background_Data_Bomb */,
 				566DA3D61C7BED0000A6E91C /* resource */,
 				740F09561C64B4AE00C0C61A /* common */,
 				740F09691C64B4AE00C0C61A /* superClass */,
@@ -592,6 +596,7 @@
 				740F096C1C64B4AE00C0C61A /* tribune */,
 				740F095E1C64B4AE00C0C61A /* mine */,
 				56A6BFFC1C59ECE100AEA490 /* AppDelegate.swift */,
+				771627F21C7CA7FA0059CCBE /* ChongYipStreet-Bridging-Header.h */,
 				56A6C0031C59ECE100AEA490 /* Assets.xcassets */,
 				56A6C0051C59ECE100AEA490 /* LaunchScreen.storyboard */,
 				56A6C0081C59ECE100AEA490 /* Info.plist */,
@@ -881,6 +886,14 @@
 				740F09701C64B4AE00C0C61A /* CYSTribuneViewController.swift */,
 			);
 			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		771627F61C7CA8BA0059CCBE /* Background_Data_Bomb */ = {
+			isa = PBXGroup;
+			children = (
+				771627F71C7CA9690059CCBE /* CYSBackgroundDataOperation.swift */,
+			);
+			name = Background_Data_Bomb;
 			sourceTree = "<group>";
 		};
 		EBBDA0A3EFD89EC8DD5C2C38 /* Frameworks */ = {
@@ -1193,6 +1206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771627F81C7CA9690059CCBE /* CYSBackgroundDataOperation.swift in Sources */,
 				740F09781C64B4AE00C0C61A /* CYSUserModel.swift in Sources */,
 				740F09711C64B4AE00C0C61A /* CYSCommandViewController.swift in Sources */,
 				56F869361C7AABDF001BDB7B /* CYSSubjectSecondTableViewCell.swift in Sources */,
@@ -1376,11 +1390,14 @@
 			baseConfigurationReference = 5A59046E60C72EC519434CAF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ChongYipStreet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qunongzhuang.ChongYipStreet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChongYipStreet/ChongYipStreet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1389,11 +1406,13 @@
 			baseConfigurationReference = 57972C52A8ECD48670681195 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ChongYipStreet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qunongzhuang.ChongYipStreet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChongYipStreet/ChongYipStreet-Bridging-Header.h";
 			};
 			name = Release;
 		};
