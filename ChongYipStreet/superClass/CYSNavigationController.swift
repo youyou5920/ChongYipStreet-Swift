@@ -8,12 +8,14 @@
 
 import UIKit
 
+
 class CYSNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        self.navigationBar.barTintColor = appMainColor
+        self.navigationBar.tintColor = UIColor.whiteColor()
     }
 
 }

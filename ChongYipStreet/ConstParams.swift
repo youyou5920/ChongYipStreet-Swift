@@ -8,6 +8,8 @@
 
 import UIKit
 
+let appMainColor = UIColor(red: 235.0/255, green: 81.0/255, blue: 89.0/255, alpha: 1.0)
+
 let DocumentDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
 let LibCacheDirectoryPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
 let TmpDirectoryPath = NSTemporaryDirectory()

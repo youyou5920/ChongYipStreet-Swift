@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="138" id="F5O-pb-20h" customClass="CYTribuneCell" customModule="ChongYipStreet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F5O-pb-20h" id="GyB-qM-iiE">
+                <rect key="frame" x="0.0" y="0.0" width="371" height="134.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来自" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="go4-9h-J3q" userLabel="来自">
+                        <rect key="frame" x="3" y="3" width="30" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="D0F-Pm-Zw3"/>
+                            <constraint firstAttribute="width" constant="30" id="e1J-y3-3IL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商业" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5o-TX-jLk" userLabel="商业">
+                        <rect key="frame" x="38" y="3" width="120" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="3c0-L7-kfQ"/>
+                            <constraint firstAttribute="width" constant="120" id="jsC-rO-SaA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-mx-vSx">
+                        <rect key="frame" x="291" y="3" width="70" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="E2h-KE-Vdm"/>
+                            <constraint firstAttribute="height" constant="30" id="hnP-iF-CN8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="45" maxY="5"/>
+                        <state key="normal" title="9999" image="c_shoucan_normal">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm1-9Y-69X">
+                        <rect key="frame" x="13" y="33" width="345" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="P2T-Eg-sdb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFi-fz-CMv">
+                        <rect key="frame" x="3" y="63" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="i7o-JQ-pAJ"/>
+                            <constraint firstAttribute="width" constant="60" id="rFf-hM-vbx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdy-kd-pYr">
+                        <rect key="frame" x="68" y="63" width="290" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="rlj-jU-0Sy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTj-Oq-jNH">
+                        <rect key="frame" x="216" y="3" width="70" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="BxJ-KT-MpH"/>
+                            <constraint firstAttribute="width" constant="70" id="deo-Cq-iFW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="45" maxY="5"/>
+                        <state key="normal" title="9999" image="c_like_normal">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="leadingMargin" secondItem="go4-9h-J3q" secondAttribute="leading" constant="5" id="5Q8-Ho-dqG"/>
+                    <constraint firstItem="Gdy-kd-pYr" firstAttribute="top" secondItem="iFi-fz-CMv" secondAttribute="top" id="77G-in-kzD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="d8I-mx-vSx" secondAttribute="trailing" constant="2" id="GaC-03-QF2"/>
+                    <constraint firstItem="dm1-9Y-69X" firstAttribute="top" secondItem="go4-9h-J3q" secondAttribute="bottom" constant="5" id="Khg-Uj-j6a"/>
+                    <constraint firstItem="iFi-fz-CMv" firstAttribute="top" secondItem="dm1-9Y-69X" secondAttribute="bottom" constant="5" id="MjO-0A-bk1"/>
+                    <constraint firstItem="JTj-Oq-jNH" firstAttribute="top" secondItem="d8I-mx-vSx" secondAttribute="top" id="NEa-aI-mWv"/>
+                    <constraint firstItem="d8I-mx-vSx" firstAttribute="leading" secondItem="JTj-Oq-jNH" secondAttribute="trailing" constant="5" id="Njj-ph-MoW"/>
+                    <constraint firstItem="d8I-mx-vSx" firstAttribute="top" secondItem="U5o-TX-jLk" secondAttribute="top" id="Pj3-oU-1R7"/>
+                    <constraint firstItem="U5o-TX-jLk" firstAttribute="leading" secondItem="go4-9h-J3q" secondAttribute="trailing" constant="5" id="fUZ-eL-OAr"/>
+                    <constraint firstAttribute="topMargin" secondItem="go4-9h-J3q" secondAttribute="top" constant="5" id="gAB-er-wdt"/>
+                    <constraint firstItem="Gdy-kd-pYr" firstAttribute="leading" secondItem="iFi-fz-CMv" secondAttribute="trailing" constant="5" id="hBl-N4-gDa"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dm1-9Y-69X" secondAttribute="trailing" constant="5" id="iNy-3O-ohH"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="iFi-fz-CMv" secondAttribute="leading" constant="5" id="lRx-Ns-zOU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Gdy-kd-pYr" secondAttribute="trailing" constant="5" id="n4h-at-gDE"/>
+                    <constraint firstItem="dm1-9Y-69X" firstAttribute="leading" secondItem="GyB-qM-iiE" secondAttribute="leadingMargin" constant="5" id="qdS-e2-vJg"/>
+                    <constraint firstItem="U5o-TX-jLk" firstAttribute="top" secondItem="go4-9h-J3q" secondAttribute="top" id="wIG-x1-2qe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="comeLabel" destination="go4-9h-J3q" id="rWm-W2-kRm"/>
+                <outlet property="contentImageView" destination="iFi-fz-CMv" id="2eC-sI-vt9"/>
+                <outlet property="contentLabel" destination="Gdy-kd-pYr" id="Bfs-ib-sqj"/>
+                <outlet property="likeButton" destination="JTj-Oq-jNH" id="ktD-Lq-wCV"/>
+                <outlet property="shoucanButton" destination="d8I-mx-vSx" id="MAl-Fk-mCg"/>
+                <outlet property="titleLable" destination="dm1-9Y-69X" id="iQc-xS-iZ6"/>
+                <outlet property="typeLabel" destination="U5o-TX-jLk" id="Wrf-tF-c17"/>
+            </connections>
+            <point key="canvasLocation" x="286.5" y="322.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="c_like_normal" width="30" height="30"/>
+        <image name="c_shoucan_normal" width="30" height="30"/>
+    </resources>
+</document>
