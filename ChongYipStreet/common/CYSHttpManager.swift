@@ -1,5 +1,5 @@
 //
-//  CSYHttpManager.swift
+//  CYSHttpManager.swift
 //  ChongYipStreet
 //
 //  Created by David Yu on 28/1/16.
@@ -10,12 +10,12 @@ import UIKit
 //import Alamofire
 //import SwiftyJSON
 
-private let manager = CSYHttpManager()
+private let manager = CYSHttpManager()
 //private let HostURL = "http://www.51qnz.cn/"      // 公司域名
 
-class CSYHttpManager: NSObject {
+class CYSHttpManager: NSObject {
     //创建单例
-    class var shareInstance: CSYHttpManager {
+    class var shareInstance: CYSHttpManager {
         get {
             return manager
         }
@@ -68,12 +68,33 @@ class CSYHttpManager: NSObject {
         }
     }
     
-    //MARK: - 注册
-    func requestRegister(parameters: [String: String]?, successClosure: (data: AnyObject) -> Void, otherFailureClosure: (data: AnyObject) -> Void, failureClosure: (data: AnyObject) -> Void) {
-        CYSBackgroundDataOperation.requestRegister(parameters) { (data) -> Void in
-            self.responseObjectParser(data, successClosure: successClosure, otherErrorClosure: otherFailureClosure, failureClosure: failureClosure)
+    //MARK: - 登录
+    func requestLogin(parameters: [String: AnyObject], successClosure: (data: AnyObject) -> Void, otherFailureClosure: (data: AnyObject) -> Void, failureClosure: (data: AnyObject) -> Void) {
+        CYSBackgroundDataOperation.requestLogin(parameters) { (data) -> Void in
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+                self.responseObjectParser(data, successClosure: successClosure, otherErrorClosure: otherFailureClosure, failureClosure: failureClosure)
+            }
         }
         
     }
+    
+    //MARK: - 获取用户信息
+    func requestUserInfos(parameters: [String: AnyObject], successClosure: (data: AnyObject) -> Void, otherFailureClosure: (data: AnyObject) -> Void, failureClosure: (data: AnyObject) -> Void) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            CYSBackgroundDataOperation.requestUserInfos(parameters) { (data) -> Void in
+                self.responseObjectParser(data, successClosure: successClosure, otherErrorClosure: otherFailureClosure, failureClosure: failureClosure)
+            }
+        }
+    }
+    
+    //MARK: - 修改用户信息
+    func requestChangeUserInfos(parameters: [String: AnyObject], successClosure: (data: AnyObject) -> Void, otherFailureClosure: (data: AnyObject) -> Void, failureClosure: (data: AnyObject) -> Void) {
+        CYSBackgroundDataOperation.requestChangeUserInfos(parameters) { (data) -> Void in
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+                self.responseObjectParser(data, successClosure: successClosure, otherErrorClosure: otherFailureClosure, failureClosure: failureClosure)
+            }
+        }
+    }
+
 
 }

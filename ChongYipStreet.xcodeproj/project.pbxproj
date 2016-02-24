@@ -126,6 +126,7 @@
 		56A6C0071C59ECE100AEA490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A6C0051C59ECE100AEA490 /* LaunchScreen.storyboard */; };
 		56A6C0121C59ECE100AEA490 /* ChongYipStreetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C0111C59ECE100AEA490 /* ChongYipStreetTests.swift */; };
 		56A6C01D1C59ECE100AEA490 /* ChongYipStreetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6C01C1C59ECE100AEA490 /* ChongYipStreetUITests.swift */; };
+		56E3D9781C7DAE5900EFB3CB /* CYSBackgroundUserTableOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3D9771C7DAE5900EFB3CB /* CYSBackgroundUserTableOperationViewController.swift */; };
 		56F868D91C7AA3BE001BDB7B /* CYCommandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F868D71C7AA3BE001BDB7B /* CYCommandService.swift */; };
 		56F868DA1C7AA3BE001BDB7B /* CYPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F868D81C7AA3BE001BDB7B /* CYPostViewController.swift */; };
 		56F868E71C7AA3EF001BDB7B /* CYCommandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F868DB1C7AA3EF001BDB7B /* CYCommandCell.swift */; };
@@ -171,7 +172,7 @@
 		56F8693A1C7AAC16001BDB7B /* CYSProject2TableHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F869391C7AAC16001BDB7B /* CYSProject2TableHeadView.swift */; };
 		56F8693C1C7AAC62001BDB7B /* CYSFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F8693B1C7AAC62001BDB7B /* CYSFunctionViewController.swift */; };
 		740F09711C64B4AE00C0C61A /* CYSCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F09551C64B4AE00C0C61A /* CYSCommandViewController.swift */; };
-		740F09721C64B4AE00C0C61A /* CSYHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F09571C64B4AE00C0C61A /* CSYHttpManager.swift */; };
+		740F09721C64B4AE00C0C61A /* CYSHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F09571C64B4AE00C0C61A /* CYSHttpManager.swift */; };
 		740F09731C64B4AE00C0C61A /* CYSDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F09581C64B4AE00C0C61A /* CYSDataBaseManager.swift */; };
 		740F09741C64B4AE00C0C61A /* CYSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F09591C64B4AE00C0C61A /* CYSParser.swift */; };
 		740F09751C64B4AE00C0C61A /* CYSRequestMethodDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740F095A1C64B4AE00C0C61A /* CYSRequestMethodDefine.swift */; };
@@ -328,6 +329,7 @@
 		56A6C0181C59ECE100AEA490 /* ChongYipStreetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChongYipStreetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A6C01C1C59ECE100AEA490 /* ChongYipStreetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChongYipStreetUITests.swift; sourceTree = "<group>"; };
 		56A6C01E1C59ECE100AEA490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56E3D9771C7DAE5900EFB3CB /* CYSBackgroundUserTableOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSBackgroundUserTableOperationViewController.swift; sourceTree = "<group>"; };
 		56F868D71C7AA3BE001BDB7B /* CYCommandService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYCommandService.swift; sourceTree = "<group>"; };
 		56F868D81C7AA3BE001BDB7B /* CYPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYPostViewController.swift; sourceTree = "<group>"; };
 		56F868DB1C7AA3EF001BDB7B /* CYCommandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYCommandCell.swift; sourceTree = "<group>"; };
@@ -375,7 +377,7 @@
 		57972C52A8ECD48670681195 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A59046E60C72EC519434CAF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		740F09551C64B4AE00C0C61A /* CYSCommandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSCommandViewController.swift; sourceTree = "<group>"; };
-		740F09571C64B4AE00C0C61A /* CSYHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSYHttpManager.swift; sourceTree = "<group>"; };
+		740F09571C64B4AE00C0C61A /* CYSHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSHttpManager.swift; sourceTree = "<group>"; };
 		740F09581C64B4AE00C0C61A /* CYSDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSDataBaseManager.swift; sourceTree = "<group>"; };
 		740F09591C64B4AE00C0C61A /* CYSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSParser.swift; sourceTree = "<group>"; };
 		740F095A1C64B4AE00C0C61A /* CYSRequestMethodDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYSRequestMethodDefine.swift; sourceTree = "<group>"; };
@@ -622,6 +624,14 @@
 			path = ChongYipStreetUITests;
 			sourceTree = "<group>";
 		};
+		56E3D9761C7DADFD00EFB3CB /* user_table_operation */ = {
+			isa = PBXGroup;
+			children = (
+				56E3D9771C7DAE5900EFB3CB /* CYSBackgroundUserTableOperationViewController.swift */,
+			);
+			name = user_table_operation;
+			sourceTree = "<group>";
+		};
 		56F868FB1C7AA41E001BDB7B /* SendViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -753,7 +763,7 @@
 			children = (
 				56F869031C7AA571001BDB7B /* User */,
 				56F869001C7AA55F001BDB7B /* Search */,
-				740F09571C64B4AE00C0C61A /* CSYHttpManager.swift */,
+				740F09571C64B4AE00C0C61A /* CYSHttpManager.swift */,
 				740F09581C64B4AE00C0C61A /* CYSDataBaseManager.swift */,
 				740F09591C64B4AE00C0C61A /* CYSParser.swift */,
 				740F095A1C64B4AE00C0C61A /* CYSRequestMethodDefine.swift */,
@@ -892,6 +902,7 @@
 			isa = PBXGroup;
 			children = (
 				771627F71C7CA9690059CCBE /* CYSBackgroundDataOperation.swift */,
+				56E3D9761C7DADFD00EFB3CB /* user_table_operation */,
 			);
 			name = Background_Data_Bomb;
 			sourceTree = "<group>";
@@ -1228,6 +1239,7 @@
 				56F8693C1C7AAC62001BDB7B /* CYSFunctionViewController.swift in Sources */,
 				740F097A1C64B4AE00C0C61A /* CYSProjectViewController.swift in Sources */,
 				56F869131C7AA571001BDB7B /* CYUserHomeViewController.swift in Sources */,
+				56E3D9781C7DAE5900EFB3CB /* CYSBackgroundUserTableOperationViewController.swift in Sources */,
 				56F8690E1C7AA571001BDB7B /* CYUserHeadView.swift in Sources */,
 				56F868ED1C7AA3EF001BDB7B /* CYProjectCell.swift in Sources */,
 				56F8692E1C7AA776001BDB7B /* CYSDefine.swift in Sources */,
@@ -1248,7 +1260,7 @@
 				56F8691A1C7AA624001BDB7B /* CYSUserInfosViewController.swift in Sources */,
 				56F8693A1C7AAC16001BDB7B /* CYSProject2TableHeadView.swift in Sources */,
 				740F09761C64B4AE00C0C61A /* ConstParams.swift in Sources */,
-				740F09721C64B4AE00C0C61A /* CSYHttpManager.swift in Sources */,
+				740F09721C64B4AE00C0C61A /* CYSHttpManager.swift in Sources */,
 				740F09771C64B4AE00C0C61A /* CYSLoginViewController.swift in Sources */,
 				740F097C1C64B4AE00C0C61A /* CYSNavigationController.swift in Sources */,
 				56F869141C7AA571001BDB7B /* CYUserNameCardViewController.swift in Sources */,

@@ -14,7 +14,14 @@ class CYSBaseViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let parameters = ["userName": "yw", "userSex": false, "": ""]
+        let parameters = ["userName": "yw3", "userSex": false, "userAvator": "", "userId": "91897ddff2"]
+        CYSHttpManager.shareInstance.requestChangeUserInfos(parameters, successClosure: { (data) -> Void in
+            
+            }, otherFailureClosure: { (data) -> Void in
+                
+            }) { (data) -> Void in
+                
+        }
     }
     
     //跳转到登陆页面
