@@ -14,6 +14,7 @@ class CYSBaseViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         
+        let parameters = ["userName": "yw", "userSex": false, "": ""]
     }
     
     //跳转到登陆页面
