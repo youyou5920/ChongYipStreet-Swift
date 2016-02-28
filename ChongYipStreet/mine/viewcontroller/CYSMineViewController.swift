@@ -148,7 +148,8 @@ extension CYSMineViewController: CYSUserheadViewDelegate, CYSUserMeansViewDelega
         if let _ = _loginUser {
             
         }else {
-            login()
+           selectUserButton(index)
+            //login()
         }
     }
     
@@ -156,7 +157,8 @@ extension CYSMineViewController: CYSUserheadViewDelegate, CYSUserMeansViewDelega
         if let _ = _loginUser {
             
         }else {
-            login()
+           selectFirstButton(index)
+            //login()
         }
     }
     
@@ -164,8 +166,82 @@ extension CYSMineViewController: CYSUserheadViewDelegate, CYSUserMeansViewDelega
         if let _ = _loginUser {
             
         }else {
-            login()
+           selectSecondButton(index)
+            //login()
         }
+    }
+    
+    func selectUserButton(index: Int){
+        
+        switch index {
+        case 0:
+            mineImgLblCell()
+        case 1:
+            mineImgLblCell()
+        case 2:
+            break
+        default:
+            break
+            
+        }
+    }
+
+    func selectFirstButton(index: Int){
+        
+        switch index {
+        case 0:
+            mineLblCell()
+        case 1:
+            mineImgLblCell()
+        case 2:
+            break   //jifeng
+        case 3:
+            break   //pengyou
+        case 4:
+            mineImgLblCell()
+        case 5:
+            mineLblCell()
+        case 6:
+            mineImgLblCell()
+        case 7:
+            break
+        default:
+            break
+            
+        }
+    }
+    
+    func selectSecondButton(index: Int){
+        
+        switch index {
+        case 0:
+            mineImgLblCell()
+        case 1:
+            mineLblCellnoSegmentd()
+        case 2:
+            mineLblCell()
+        default:
+            mineImgLblCell()
+            
+        }
+    }
+    func mineImgLblCell(){
+        let mineVC = CYSMineMediaAndPostController()
+        mineVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.showViewController(mineVC, sender: nil)
+    }
+    
+    func mineLblCell(){
+        let mineVC = CYProgramViewController()
+        mineVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mineVC, animated: true)
+        
+    }
+    
+    func mineLblCellnoSegmentd(){
+        let mineVC = CYSMinePlanViewController()
+        mineVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mineVC, animated: true)
     }
 }
 
