@@ -11,7 +11,7 @@ import UIKit
 class CYSBaseViewController: UIViewController {
     
     var _backgroundView: UIView!
-    var _motionView: UIView!
+    var _motionView: CYSMotionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class CYSBaseViewController: UIViewController {
         UIApplication.sharedApplication().keyWindow?.addSubview(_backgroundView)
         _backgroundView.hidden = true
         
-        _motionView = UIView(frame: CGRectMake(0, Device_Height-300, Device_Width, 300))
+        _motionView = CYSMotionView(frame: CGRectMake(0, Device_Height-320, Device_Width, 320))
         _motionView.backgroundColor = UIColor.whiteColor()
         UIApplication.sharedApplication().keyWindow?.addSubview(_motionView)
         _motionView.hidden = true
@@ -53,7 +53,7 @@ class CYSBaseViewController: UIViewController {
     //MARK: - 摇一摇
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         super.motionEnded(motion, withEvent: event)
-        
+        setMotionViewHiddeState(false)
     }
 
     //MARK: - 跳转到登陆页面
@@ -64,4 +64,31 @@ class CYSBaseViewController: UIViewController {
     }
     
     
+}
+
+extension CYSBaseViewController: CYSMotionViewDelegate {
+    func motionViewDidSelectSettingButton() {
+    
+    }
+    
+    func motionViewDidSelectSearchButton() {
+    
+    }
+    
+    func motionViewDidSelectServiceButton() {
+    
+    }
+    
+    func motionViewDidSelectFeedbackButton() {
+    
+    }
+    
+    func motionViewDidSelectCancelButton() {
+        setMotionViewHiddeState(true)
+    }
+    
+    func motionViewDidSelectItemButtonWithIndex(index: Int) {
+    
+    }
+
 }
