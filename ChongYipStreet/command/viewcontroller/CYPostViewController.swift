@@ -82,9 +82,19 @@ class CYPostViewController: UIViewController {
     }
     func initNavigationBar(){
         
-        self.navigationItem.rightBarButtonItems =
-            [UIBarButtonItem(title: CYNSLocalizedString("添加"), style: .Plain, target: self, action: "addAction:"),
-                UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: "searchAction:") ]
+        let addButton = UIButton(type: .System)
+        addButton.clipsToBounds = true
+        addButton.layer.cornerRadius = 12
+        addButton.frame = CGRectMake(0,0,56,25)
+        addButton.backgroundColor = UIColor.whiteColor()
+        addButton.setTitle("添加", forState: .Normal)
+        addButton.setTitleColor(appMainColor, forState: .Normal)
+        addButton.addTarget(self, action: "addAction:", forControlEvents: .TouchUpInside)
+ 
+        let addItem = UIBarButtonItem(customView: addButton)
+        
+        let searchItem = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: "searchAction:")
+        self.navigationItem.rightBarButtonItems = [addItem, searchItem]
     }
     
     func addAction(fenxianItem : UIBarButtonItem){

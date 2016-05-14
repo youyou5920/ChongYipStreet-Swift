@@ -16,12 +16,12 @@ class CYSCommandViewController: CYSBaseViewController,CYCustomSegmentedViewDeleg
     
     let kSegmentedTitles : Array<String> = [CYNSLocalizedString("全部"),CYNSLocalizedString("经验"),CYNSLocalizedString("相关"),CYNSLocalizedString("方案")]
     let kSubTitles : Array<String> = [CYNSLocalizedString("寻找"),CYNSLocalizedString("找方法"),CYNSLocalizedString("找团队"),CYNSLocalizedString("交流圈")]
-    let kSubImages : Array<String> = ["cang","cang","cang","cang"]
+    let kSubImages : Array<String> = ["seek","program","team","interflow"]
     
     let tableView     = UITableView()
-    let headerView    = UIView(frame: CGRectMake(0, 0, screenWidth(), screenWidth() / CGFloat(4)  + 220))
+    let headerView    = UIView(frame: CGRectMake(0, 0, screenWidth(), 285))
     let scrollView    = CYScrollView()
-    let customButtons = CYCustomButtons()
+    let customButton = CYButton()
     let segmentedView = CYCustomSegmentedView()
     
     override func viewWillAppear(animated: Bool) {
@@ -67,17 +67,18 @@ class CYSCommandViewController: CYSBaseViewController,CYCustomSegmentedViewDeleg
             make.top.equalTo(segmentedView.snp_bottom).offset(0)
         }
         
-        customButtons.setTitleInfo(kSubTitles, images: kSubImages,delegate: self)
         
         headerView.addSubview(scrollView)
-        headerView.addSubview(customButtons)
+        headerView.addSubview(customButton)
+        customButton.layoutState = .Normal
+        customButton.setButtonInfo(CGSizeMake(80,80), titles: kSubTitles, images: kSubImages, delegate: self)
         
         scrollView.snp_makeConstraints(closure: { (make) -> Void in
             make.top.equalTo(0)
             make.height.equalTo(200)
             make.left.right.equalTo(0)
         })
-        customButtons.snp_makeConstraints(closure: { (make) -> Void in
+        customButton.snp_makeConstraints(closure: { (make) -> Void in
             make.left.right.equalTo(0)
             make.bottom.equalTo(0)
             make.top.equalTo(scrollView.snp_bottom)
@@ -156,7 +157,7 @@ class CYSCommandViewController: CYSBaseViewController,CYCustomSegmentedViewDeleg
 
 
 //MARK:- TableViewDelegate
-extension CYSCommandViewController : UITableViewDelegate,UITableViewDataSource,CYCustomButtonsDelegate{
+extension CYSCommandViewController : UITableViewDelegate,UITableViewDataSource,CYButtonDelegate{
     
     func showHeaderView(commandType : CommandType){
         if commandType == .All {
@@ -209,7 +210,7 @@ extension CYSCommandViewController : UITableViewDelegate,UITableViewDataSource,C
         self.tableViewReloadData()
     }
     
-    func customButtons(customButton: CYCustomButtons, selectIndex: Int) {
+    func buttonDidSelectIndex(button : CYButton, selectIndex: Int) {
         switch selectIndex{
         case 0:
             let seekViewController = CYSeekViewController()

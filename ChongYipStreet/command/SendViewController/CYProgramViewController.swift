@@ -96,7 +96,7 @@ class CYProgramViewController: CYSBaseViewController,CYCustomSegmentedViewDelega
     func actionSearch(searchItem : UIBarButtonItem){
         
     }
-    //MARK:- CYCustomSegmentedViewDelegate、CYCustomButtons
+    //MARK:- CYCustomSegmentedViewDelegate、CYButtons
     func customSegmentedView(segmentedView: CYCustomSegmentedView, selectIndex: Int) {
         
         self.selectIndex = selectIndex

@@ -1,138 +1,112 @@
 //
-//  CYCustomButtons.swift
+//  CYButtons.swift
 //  ChongYipStreet
 //
 //  Created by youyou5920 on 16/2/5.
 //  Copyright © 2016年 yanwei. All rights reserved.
 //
 
+
+
 import UIKit
-protocol CYCustomButtonsDelegate : NSObjectProtocol{
-    func customButtons(customButton : CYCustomButtons, selectIndex : Int)
+protocol CYButtonDelegate : NSObjectProtocol{
+    func buttonDidSelectIndex(button : CYButton, selectIndex : Int)
 }
-class CYCustomButtons: UIView {
- 
-    var items : Array<UIButton> = Array()
-    var delegate : CYCustomButtonsDelegate? = nil
+
+enum CYButtonLayoutState : Int{
+    case Normal     = 0
+    case Special    = 1
+}
+class CYButton: UIView {//使用该类注意图片尺寸正确
+    
+    let toolbar = UIToolbar()
+    var buttons = [UIButton]()
+    
+    var layoutState : CYButtonLayoutState = .Normal
+    
+    var delegate : CYButtonDelegate? = nil
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: CGRectZero)
+        
+        self.addSubview(toolbar)
+        
+        toolbar.tintColor = UIColor.blackColor()
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        
+        let toolbarHConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[toolbar]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["toolbar" : toolbar])
+        let toolbarVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[toolbar]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["toolbar" : toolbar])
+        self.addConstraints(toolbarHConstraints)
+        self.addConstraints(toolbarVConstraints)
     }
-    func setButtonInfo(buttonSize : CGSize,titles : Array<String>, images : Array<String>, delegate : CYCustomButtonsDelegate?){
 
-        self.delegate = delegate
-        self.initLayoutView(buttonSize,isCustom: true, titles: titles, images: images)
+    func loadToolItems_noraml(){
+        
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        var toolItems = [spaceItem]
+        
+        for button in buttons{
+            toolItems += [UIBarButtonItem(customView: button),spaceItem]
+        }
+        
+        toolbar.items = toolItems
     }
     
-    func setTitleInfo(titles : Array<String>, images : Array<String>, delegate : CYCustomButtonsDelegate?){
-        self.delegate = delegate
-        self.initLayoutView(CGSize(),isCustom: false, titles: titles, images: images)
+    func loadToolItems_special(){
+        
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        var toolItems = [UIBarButtonItem]()
+        
+        for button in buttons{
+            toolItems += [UIBarButtonItem(customView: button),spaceItem]
+        }
+        toolItems.removeLast()
+        toolbar.items = toolItems
     }
     
-    private func initLayoutView(buttonSize : CGSize,isCustom : Bool,titles : Array<String>, images : Array<String>){
+    func setButtonInfo(buttonSize : CGSize,titles : Array<String>, images : Array<String>, delegate : CYButtonDelegate?){
+        
+        self.delegate = delegate
+        
+        for button in buttons{
+            button.removeFromSuperview()
+        }
+        buttons.removeAll()
         
         for index in 0 ..< titles.count{
-
-            let button = UIButton(type: .Custom)
-            self.items.append(button)
+            
+            let button = UIButton(type: .System)
+            
             button.tag = index + 1024
-            button.frame = CGRect(x: 0, y: 0, width: buttonSize.width, height: buttonSize.height + 20)
+            button.contentVerticalAlignment = .Top
+            button.contentHorizontalAlignment = .Left
+            button.frame = CGRect(x: 0, y: 0, width: buttonSize.width, height: buttonSize.height)
             button.addTarget(self, action: "actionTouchUpInside:", forControlEvents: .TouchUpInside)
             
-            let imageView = UIImageView()
-            button.addSubview(imageView)
-            imageView.image = UIImage(named: images[index])
-            imageView.translatesAutoresizingMaskIntoConstraints = false
+            button.setTitle(titles[index], forState: .Normal)
+            button.titleLabel?.font = UIFont.systemFontOfSize(14)
             
-            let imageViewHConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-5-[imageView]-5-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["imageView" : imageView])
-            let imageViewVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[imageView]-25-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["imageView" : imageView])
-            
-            let textLabel = UILabel()
-            button.addSubview(textLabel)
-            textLabel.text = titles[index]
-            textLabel.textAlignment = .Center
-            textLabel.font = UIFont.systemFontOfSize(14)
-            textLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            let textLabelHConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[textLabel]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["textLabel" : textLabel])
-            let textLabelVConstraints =
-            [NSLayoutConstraint(item: textLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0, constant: 20),
-            NSLayoutConstraint(item: textLabel, attribute: .Bottom, relatedBy: .Equal, toItem: button, attribute: .Bottom, multiplier: 1, constant: 0)]
-            
-            button.addConstraints(imageViewHConstraints)
-            button.addConstraints(imageViewVConstraints)
-            button.addConstraints(textLabelVConstraints)
-            button.addConstraints(textLabelHConstraints)
+            if let image = UIImage(named: images[index]){
+                let titleLeftSpan = (buttonSize.width - titles[index].boundingRectWithSize(buttonSize, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(14)], context: nil).size.width) / 2.0
+                button.setImage(image.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+                button.imageEdgeInsets = UIEdgeInsetsMake(0, 11, 22, 11)
+                button.titleEdgeInsets = UIEdgeInsetsMake(buttonSize.height - 20, -image.size.width + titleLeftSpan, 0, 0)
+            }
+            buttons.append(button)
         }
         
-        if isCustom{
-            self.layoutConstraintCustomSize()
-            
-        }else{
-            self.layoutConstraintView()
+        switch layoutState{
+        case .Normal:
+            self.loadToolItems_noraml()
+        case .Special:
+            self.loadToolItems_special()
         }
     }
     
-    private func layoutConstraintCustomSize(){
-        
-        let tooBar = UIToolbar()
-        self.addSubview(tooBar)
-        tooBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        let tooBarHConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[tooBar]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["tooBar" : tooBar])
-        let tooBarVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[tooBar]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["tooBar" : tooBar])
-        self.addConstraints(tooBarHConstraints)
-        self.addConstraints(tooBarVConstraints)
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        var tooBarItems : Array<UIBarButtonItem> = Array()
-        for index in 0 ..< self.items.count{
-            let button = self.items[index]
-            button.autoresizingMask = .FlexibleLeftMargin
-            tooBarItems.append(UIBarButtonItem(customView: button))
-            tooBarItems.append(flexibleSpace)
-        }
-        tooBarItems.removeLast()
-        tooBar.items = tooBarItems
-    }
-    
-    private func layoutConstraintView(){
-        
-        var views : [String:AnyObject] = Dictionary()
-        var stringFormat = "H:|"
-        
-        for index in 0 ..< self.items.count{
-            
-            let button = self.items[index]
-            self.addSubview(button)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            
-            let buttonVConstraints  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[button]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["button":button])
-            
-            self.addConstraint(NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 1.0 / CGFloat(self.items.count), constant: 0))
-            self.addConstraints(buttonVConstraints)
-            
-            stringFormat += "-0-[button\(index)]"
-            views["button\(index)"] = button
-        }
-        stringFormat += "-0-|"
-        let buttonHConstraints  = NSLayoutConstraint.constraintsWithVisualFormat(stringFormat, options: .DirectionLeadingToTrailing, metrics: nil, views: views)
-        self.addConstraints(buttonHConstraints)
-    }
-    private func shouldCustomWidth(button : CGSize){
-    
-    }
-    
-    func getHeight() -> CGFloat{
-        return screenWidth() / CGFloat(self.items.count) + 20
-    }
     func actionTouchUpInside(button : UIButton){
-        self.delegate?.customButtons(self, selectIndex: button.tag - 1024)
+        self.delegate?.buttonDidSelectIndex(self, selectIndex: button.tag - 1024)
     }
-    
-
-
 }

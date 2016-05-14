@@ -8,16 +8,16 @@
 
 import UIKit
 
-class CYCommunicateViewController: CYSBaseViewController,CYCustomSegmentedViewDelegate,CYCustomButtonsDelegate {
+class CYCommunicateViewController: CYSBaseViewController,CYCustomSegmentedViewDelegate,CYButtonDelegate {
     
     let kIdentifier : String = "CommunicateCell"
     
     let kSegmentedTitles : Array<String> = [CYNSLocalizedString("联系人"),CYNSLocalizedString("群组")]
     let kSubTitles : Array<String> = [CYNSLocalizedString("消息"),CYNSLocalizedString("联系"),CYNSLocalizedString("动态")]
-    let kSubImages : Array<String> = ["cang","cang","cang"]
+    let kSubImages : Array<String> = ["message_n","relation_n","dynamic_n"]
     
     let tableView     = UITableView()
-    let customButtons = CYCustomButtons()
+    let customButton = CYButton()
     let segmentedView = CYCustomSegmentedView()
     
     override func viewWillAppear(animated: Bool) {
@@ -43,10 +43,11 @@ class CYCommunicateViewController: CYSBaseViewController,CYCustomSegmentedViewDe
         
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.segmentedView)
-        self.view.addSubview(self.customButtons)
+        self.view.addSubview(self.customButton)
 
         self.segmentedView.setTitleInfos(kSegmentedTitles, delegate : self)
-        self.customButtons.setButtonInfo(CGSize(width: 40,height: 40) , titles: kSubTitles, images: kSubImages,delegate: self)
+        self.customButton.layoutState = .Special
+        self.customButton.setButtonInfo(CGSize(width: 60,height: 60) , titles: kSubTitles, images: kSubImages,delegate: self)
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -62,7 +63,7 @@ class CYCommunicateViewController: CYSBaseViewController,CYCustomSegmentedViewDe
             make.left.right.equalTo(0)
             make.top.equalTo(segmentedView.snp_bottom).offset(0)
         }
-        self.customButtons.snp_makeConstraints { (make) -> Void in
+        self.customButton.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(64)
             make.left.right.equalTo(0)
             make.bottom.equalTo(0)
@@ -99,13 +100,13 @@ class CYCommunicateViewController: CYSBaseViewController,CYCustomSegmentedViewDe
     func actionSearch(searchItem : UIBarButtonItem){
         
     }
-    //MARK:- CYCustomSegmentedViewDelegate、CYCustomButtons
+    //MARK:- CYCustomSegmentedViewDelegate、CYButtonsDelegate
     func customSegmentedView(segmentedView: CYCustomSegmentedView, selectIndex: Int) {
         
 
     }
     
-    func customButtons(customButton: CYCustomButtons, selectIndex: Int) {
+    func buttonDidSelectIndex(customButton: CYButton, selectIndex: Int) {
         
     }
     
